@@ -46,6 +46,15 @@ tokaOtsikko.addEventListener("mouseover", function () {
   alert("Stepped over me with a mouse!");
 });
 
+// Etsi eka otsikko
+let ekaOtsikko = document.querySelector("#ekaOtsikko");
+// Lisää otsikkoon kuuntelija ja klikkaus alert
+ekaOtsikko.addEventListener("click", function () {
+  alert("Bye bye mouse!");
+// Lisää värin muutos otsikkoon
+ekaOtsikko.style.color = "red";
+});
+
 // Etsi kenttä sivulta
 let kentta = document.querySelector("input");
 // Lisää kuuntelija

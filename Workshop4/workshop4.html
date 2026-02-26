@@ -6,11 +6,49 @@
 	<title>Työpaja 4</title>
 	<meta charset="utf-8" />
 	<link rel="stylesheet" href="css/styles.css" />
+		<!--Tehtävä 4: Tarkista sijoitus, lisää numerotarkastus, lisää painikkeen toiminto-->
+	<script>
+		function lisaaRivi () {
+		let nimi = document.querySelector("#nimi".value)
+		let tehtava = document.querySelector("#tehtava").value
+		let palkka = document.querySelector("#palkka").value
+		console.log (nimi, tehtava, palkka)
+
+		// Validointi (nimi yli 5 merkkiä)
+		if (nimi.lenght < 5) {
+			alert("Nimen tulee olla yli 5 merkkiä pitkä")
+			return
+		}
+		// Validointi (tehtävä ei tyhjä)
+		if (tehtava === "") {
+			alert("Tehtäväkenttä ei saa olla tyhjä")
+			return
+		}
+		// !LISÄÄ VIELÄ NUMEROTARKASTUS!
+		// Validointi (palkka yli 0 ja syöte on numero)
+		if (palkka < 0) {
+			alert("Palkka ei saa olla tyhjä ja sen on oltava yli 0")
+			return
+		}
+		
+      let taulukko = document.getElementById("taulukko");
+      const uusiRivi = taulukko.insertRow(-1); // -1 = lisää loppuun
+
+      let solu1 = uusiRivi.insertCell(0);
+      let solu2 = uusiRivi.insertCell(1);
+	  let solu3 = uusiRivi.insertCell(2)
+
+	  solu1.textContent = nimi
+	  solu2.textContent = tehtava
+	  solu3.innerHTML = palkka
+
+	}
+	</script>
 </head>
 
 <body>
 	<hr />
-	<h2>Tehtävä 1: Perus- DOM-muokkaus</h2>
+	<h2 id="otsikkoYksi">Tehtävä 1: Perus- DOM-muokkaus</h2>
 	<p>
 		&nbsp;Alla näet kolme painiketta. Muokkaa lähdekoodia ja lisää näille
 		painikkeille onClick-tapahtumat. Käytä kehittäjäkonsolia löytääksesi
@@ -133,7 +171,9 @@
 		Palkka:
 		<input type="text" name="textfield3" id="palkka" />
 		<br /><br>
-		<input type="button" name="Insert" id="Insert" value="Lisää" />
+
+		<!-- !! Laita onclick -toimimaan KESKENERÄINEN -->
+		<input onclick="lisaaRivi()" type="button" name="Insert" id="Insert" value="Lisää" />
 		</p>
 		<table id="data" class="display" border="1">
 			<thead>
@@ -227,6 +267,8 @@
 				&lsquo;Select&rsquo;?
 			</li>
 		</ul>
+	<script src="js/toiminnot.js"></script>
+
 </body>
 
 </html>

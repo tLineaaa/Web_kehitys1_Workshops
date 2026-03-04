@@ -42,6 +42,7 @@ let kolmaspainallus = document.querySelector("#painikeKolme");
 kolmaspainallus.addEventListener("click", function() {
     let click3 = document.querySelector("#loremloppu");
     click3.innerHTML= "<strong>Lasten laulu</strong> Olen omena, olen omena, olen pyöreä omena!<br><br>"
+    click3.style.backgroundColor = "white"; //laitoin  ylimääräiseksi tekstin taustan vaihtumaan valkoiseksi, jotta muutos näkyy selkeämmin testatessa
 })
 
 // Bonus: Miten vaihtaisit JavaScriptillä koko sivun taustavärin
@@ -68,7 +69,7 @@ uusijuttu.style.border = "1px solid black"
 
 let kuva1 = document.createElement("img");
 kuva1.src ="media/saukko.jpg"; //haetaan kuva media-kansiosta
-kuva1.style.maxWidth = "100%";
+kuva1.style.maxWidth = "10%";
 uusijuttu.appendChild(kuva1); //lisätään kuva uusijuttu-kohtaan
 
 // piilotetaan uusijuttu ja kuva painikkeen klikkauksella

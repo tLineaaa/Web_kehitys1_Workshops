@@ -2,20 +2,20 @@
 <!DOCTYPE html>
 <html lang="fi">
 
-<head>
+<head id="paa">
 	<title>Työpaja 4</title>
 	<meta charset="utf-8" />
 	<link rel="stylesheet" href="css/styles.css" />
-		<!--Tehtävä 4: Tarkista sijoitus, lisää numerotarkastus, lisää painikkeen toiminto // siirrä js.tiedostoon-->
+		<!--Tehtävä 4: Lisää numerotarkastus-->
 	<script>
 		function lisaaRivi () {
-		let nimi = document.querySelector("#nimi".value)
+		let nimi = document.querySelector("#nimi").value
 		let tehtava = document.querySelector("#tehtava").value
 		let palkka = document.querySelector("#palkka").value
 		console.log (nimi, tehtava, palkka)
 
 		// Validointi (nimi yli 5 merkkiä)
-		if (nimi.lenght < 5) {
+		if (nimi.length < 5) {
 			alert("Nimen tulee olla yli 5 merkkiä pitkä")
 			return
 		}
@@ -31,7 +31,7 @@
 			return
 		}
 		
-      let taulukko = document.getElementById("taulukko");
+      let taulukko = document.getElementById("data");
       const uusiRivi = taulukko.insertRow(-1); // -1 = lisää loppuun
 
       let solu1 = uusiRivi.insertCell(0);
@@ -46,17 +46,18 @@
 	</script>
 </head>
 
-<body>
+<body id="keho">
 	<hr />
 	<h2 id="otsikkoYksi">Tehtävä 1: Perus- DOM-muokkaus</h2>
 	<p>
 		&nbsp;Alla näet kolme painiketta. Muokkaa lähdekoodia ja lisää näille
 		painikkeille onClick-tapahtumat. Käytä kehittäjäkonsolia löytääksesi
 	</p>
+	<!-- Otin onclick-kohdat pois ja lisäsin id-kohdat, jotta pystyin lisäämään kuuntelijat toiminnot.js -tiedostoon -->
 	<p>
-		<button onclick="changeHeading();">Painike 1</button>
-		<button onclick="secondButton()">Painike 2</button>
-		<button onclick="">Painike 3</button>
+		<button id="painikeYksi" >Painike 1</button>
+		<button id="painikeKaksi">Painike 2</button>
+		<button id="painikeKolme">Painike 3</button>
 	</p>
 
 	<ul>
@@ -74,7 +75,7 @@
 			Kolmas painike lisää korvaa allaolevan Lorem Ipsum-tekstikappaleen sisällön jollain itse valitsemallasi
 			tekstillä. Säilytä tekstin muotoilu.<br />
 			<br />
-			<em>
+			<em id="loremloppu">
 				<strong id="lorem">&quot;Lorem ipsum</strong>
 				dolor sit amet, consectetuer adipiscing elit. Sed posuere interdum
 				sem. Quisque ligula eros ullamcorper quis, lacinia quis facilisis sed
@@ -90,7 +91,8 @@
 
 	<div id="sisalto"></div>
 	<hr />
-	<h2>Tehtävä 2: Elementtien luomista dynaamisesti</h2>
+	<!--- Nimetty toinen otsikko "otsikkoKaksi"-->
+	<h2 id="otsikkoKaksi">Tehtävä 2: Elementtien luomista dynaamisesti</h2>
 	Tee allaolevat operaatiot sivulle JavaScriptia käyttäen. Älä siis kirjoita itse HTML:n sekaan tägejä vaan kirjoita
 	JavaScript-koodi joka luo ne. Kokeile komento kerrallaan ensin konsolissa. Kun löydät oikeat komennot, vie ne HTML:n
 	sivulle talteen. Muokkaa myös tyylejä JS:n avulla.
@@ -172,7 +174,7 @@
 		<input type="text" name="textfield3" id="palkka" />
 		<br /><br>
 
-		<!-- !! Laita onclick -toimimaan KESKENERÄINEN // Tai siirrä js-tiedostoon -->
+		<!-- suoritetaan aiemmin luotu funktio lisaaRivi()-->
 		<input onclick="lisaaRivi()" type="button" name="Insert" id="Insert" value="Lisää" />
 		</p>
 		<table id="data" class="display" border="1">

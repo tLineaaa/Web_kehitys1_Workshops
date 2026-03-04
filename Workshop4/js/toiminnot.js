@@ -53,3 +53,34 @@ haha.style.backgroundColor="yellow"}) //vaihtaa värin
 
 voiei.addEventListener("click", function() { //sama kuin yllä
 voiei.style.backgroundColor="yellow"})
+//^joo, ei oo hyvin nimetty
+
+// Tehtävä 2
+
+let uusijuttu = document.querySelector("#sisalto"); // etsitty id sisalto
+uusijuttu.style.color = "red"; //vaihdettu väri punaiseksi
+uusijuttu.style.fontFamily = "times new roman"; // fontti eri
+uusijuttu.style.backgroundColor = "purple"; // taustaväri lila
+uusijuttu.innerHTML = "<h3>Etusivun uutinen</h3>" //pyydetty otsikkomuoto ja teksti
+uusijuttu.style.border = "1px solid black"
+
+// kuvan asettaminen muotoilu
+
+let kuva1 = document.createElement("img");
+kuva1.src ="media/saukko.jpg"; //haetaan kuva media-kansiosta
+kuva1.style.maxWidth = "100%";
+uusijuttu.appendChild(kuva1); //lisätään kuva uusijuttu-kohtaan
+
+// piilotetaan uusijuttu ja kuva painikkeen klikkauksella
+let piiloonpainike = document.querySelector("#painike1");
+piiloonpainike.addEventListener("click", function() {
+    uusijuttu.style.display="none"
+    kuva1.style.display="none"
+})
+
+// palautetaan uusijuttu ja kuva näkyville
+let esiinpainike = document.querySelector("#painike2");
+esiinpainike.addEventListener("click", function() {
+    uusijuttu.style.display=""
+    kuva1.style.display=""
+})

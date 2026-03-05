@@ -19,7 +19,7 @@ let tokapainallus = document.querySelector("#painikeKaksi");
 tokapainallus.addEventListener("click", function() {
 
 
-    //muuttaa otsikon kaksi fonttikoko, tyyli, väri ja taustaväri (kyseessä kirjain O, ei nolla)
+//muuttaa otsikon kaksi fonttikoko, tyyli, väri ja taustaväri (kyseessä kirjain O, ei nolla)
 
     let vaihdaO2 = document.createElement("h2");
     vaihdaO2.style.color = "green"; //värinvaihto
@@ -84,4 +84,17 @@ let esiinpainike = document.querySelector("#painike2");
 esiinpainike.addEventListener("click", function() {
     uusijuttu.style.display=""
     kuva1.style.display=""
+})
+
+// Tehtävä 3
+let muutos = document.querySelector("#mySelect"); //valitaan kohta mySelect
+muutos.addEventListener("change", function() { //lisätään kuuntelija, kun value muuttuu
+    if (muutos.value == "BMW") { //jos value = bmw
+        alert("Valitsit Bemarin");} // alert = valitsit bemarin
+    if (muutos.value == "Audi") {
+        alert("Valitsit Audin");}
+    if (muutos.value == "Mercedes") {
+        alert("Valitsit Mersun");}
+    if (muutos.value == "Volvo") {
+        alert("Valitsit Volvon");}
 })

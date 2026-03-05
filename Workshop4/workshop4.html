@@ -2,11 +2,11 @@
 <!DOCTYPE html>
 <html lang="fi">
 
-<head id="paa">
+<head id="paa"> <!--nimetty bonus-tehtävää varten-->
 	<title>Työpaja 4</title>
 	<meta charset="utf-8" />
 	<link rel="stylesheet" href="css/styles.css" />
-		<!--Tehtävä 4: Lisää numerotarkastus-->
+		<!--Tehtävä 4: Lisää numerotarkastus (luotu funktio, käytetään myöhemmin)-->
 	<script>
 		function lisaaRivi () {
 		let nimi = document.querySelector("#nimi").value
@@ -16,7 +16,7 @@
 
 		// Validointi (nimi yli 5 merkkiä)
 		if (nimi.length < 5) {
-			alert("Nimen tulee olla yli 5 merkkiä pitkä")
+			alert("Nimen tulee olla yli 5 merkkiä pitkä") //Jos ei, herjaa
 			return
 		}
 		// Validointi (tehtävä ei tyhjä)
@@ -24,10 +24,13 @@
 			alert("Tehtäväkenttä ei saa olla tyhjä")
 			return
 		}
-		// !LISÄÄ VIELÄ NUMEROTARKASTUS!
 		// Validointi (palkka yli 0 ja syöte on numero)
 		if (palkka < 0) {
 			alert("Palkka ei saa olla tyhjä ja sen on oltava yli 0")
+			return }
+		// Validointi (palkan on oltava numero)
+		if (palkka !== isNaN()) {
+			alert("Palkan on oltava numero")
 			return
 		}
 		

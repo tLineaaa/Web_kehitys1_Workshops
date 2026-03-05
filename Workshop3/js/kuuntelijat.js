@@ -63,7 +63,7 @@ let tekstikentta = document.querySelector("textarea");
 let lomake = document.querySelector("#feedbackForm");
 let merkkimaara = document.querySelector("#charcount");
 const maxpituus = 200; //maksimipituus
-let esimerkki = document.querySelector("#preview")
+let esimerkki = document.querySelector("#preview");
 
 //lisätään kuuntelija focus, kun tekstikenttä aktivoituu, näkyville tulee teksti ja väri vaihtuu
 tekstikentta.addEventListener("focus", function () {
@@ -107,4 +107,14 @@ lomake.addEventListener("submit", function(e) {
   }
   alert("Kiitos palautteesta!"); //muutoin näytä tämä viesti (pop-up)
   tekstikentta.value = ""; // tyhjennä tekstikenttä
+})
+
+// HARJOITUS 5
+
+let kohta = document.querySelector("#keybox") // oikea kohta näyttää viimeisin painettu
+let tieto = document.querySelector("#keyinfo") // tiedon kohta (viimeisin painettu painike ja sen koodi)
+
+document.addEventListener("keydown", function(b) { // lisätty kuuntelija "kaikkialle" documenttiin
+    kohta.textContent = b.key; // päivitä kohtaan näppäin
+    tieto.textContent = `Painoit viimeiseksi: ${b.key}. Koodi: ${b.code}`; // tulosta näppäin ja sen koodi tieto-kohtaan
 })

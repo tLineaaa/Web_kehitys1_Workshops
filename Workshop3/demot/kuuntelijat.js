@@ -79,12 +79,12 @@ tekstikentta.addEventListener("blur", function() {
 // merkkimäärän tarkistus
 tekstikentta.addEventListener("input", function(){
   let nytpituus = tekstikentta.value.length; //tsekkaa pituus
-  charcount.textContent = `${nytpituus}/${maxpituus}` //näytä pituus / max pituus
+  charcount.textContent = `${nytpituus}/${maxpituus}`; //näytä pituus / max pituus
 
 //jos merkkimäärä ylittyy DEAKTIVOINTI UUPUU
   if (nytpituus > maxpituus) {
-    tekstikentta.style.backgroundColor = "red" //tekstikentän väri muuttuu punaiseksi
-    merkkimaara.style.color = "red" // merkkimäärä muuttuu punaiseksi
+    tekstikentta.style.backgroundColor = "red"; //tekstikentän väri muuttuu punaiseksi
+    merkkimaara.style.color = "red"; // merkkimäärä muuttuu punaiseksi
   }
 })
 

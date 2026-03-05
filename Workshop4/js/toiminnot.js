@@ -107,8 +107,11 @@ muutos.addEventListener("change", function() { //lisätään kuuntelija, kun val
         autoKuva.src = "./media/volvo.png";}
 })
 
-// Lisätään kuuntelija, jos hiiri kuvan päällä (kesken)
+// Lisätään kuuntelija, jos hiiri kuvan päällä > reuna, ja hiiri kuvan päältä pois, reuna pois
 let reuna = document.querySelector("#carimage");
-reuna.addEventListener("mouseover", function() {
-    reuna.style.border = "2px blue"
+reuna.addEventListener("mouseenter", function() {
+    reuna.style.border = "2px solid blue"
+})
+reuna.addEventListener("mouseleave", function() {
+    reuna.style.border = "none"
 })

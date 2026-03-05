@@ -68,7 +68,7 @@ uusijuttu.style.border = "1px solid black"
 // kuvan asettaminen muotoilu
 
 let kuva1 = document.createElement("img");
-kuva1.src ="media/saukko.jpg"; //haetaan kuva media-kansiosta
+kuva1.src ="media/saukko.jpg"; //haetaan kuva media-kansiosta (laitoin näin, koska toimii paremmin kuin URLilla)
 kuva1.style.maxWidth = "10%";
 uusijuttu.appendChild(kuva1); //lisätään kuva uusijuttu-kohtaan
 
@@ -88,13 +88,27 @@ esiinpainike.addEventListener("click", function() {
 
 // Tehtävä 3
 let muutos = document.querySelector("#mySelect"); //valitaan kohta mySelect
+let bmwaloitus = carimage.src; // otetaan talteen eka kuva
+
 muutos.addEventListener("change", function() { //lisätään kuuntelija, kun value muuttuu
+    let autoKuva = document.querySelector("#carimage"); // haetaan autokuva
+
     if (muutos.value == "BMW") { //jos value = bmw
-        alert("Valitsit Bemarin");} // alert = valitsit bemarin
-    if (muutos.value == "Audi") {
-        alert("Valitsit Audin");}
+        alert("Valitsit Bemarin"); // alert = valitsit bemarin
+        autoKuva.src = bmwaloitus }// palatessa tähän valintaan, alkup. kuva palautuu
+    if (muutos.value == "Audi") { // jos value = audi
+        alert("Valitsit Audin"); // alert ja
+        autoKuva.src = "./media/audi.jpg";} // vaihda kuva ja sama seuraavissa muutoksen mukaan
     if (muutos.value == "Mercedes") {
-        alert("Valitsit Mersun");}
+        alert("Valitsit Mersun");
+        autoKuva.src = "./media/mersu.png";}
     if (muutos.value == "Volvo") {
-        alert("Valitsit Volvon");}
+        alert("Valitsit Volvon");
+        autoKuva.src = "./media/volvo.png";}
+})
+
+// Lisätään kuuntelija, jos hiiri kuvan päällä (kesken)
+let reuna = document.querySelector("#carimage");
+reuna.addEventListener("mouseover", function() {
+    reuna.style.border = "2px blue"
 })

@@ -63,6 +63,7 @@ let tekstikentta = document.querySelector("textarea");
 let lomake = document.querySelector("#feedbackForm");
 let merkkimaara = document.querySelector("#charcount");
 const maxpituus = 200; //maksimipituus
+let esimerkki = document.querySelector("#preview")
 
 //lisätään kuuntelija focus, kun tekstikenttä aktivoituu, näkyville tulee teksti ja väri vaihtuu
 tekstikentta.addEventListener("focus", function () {
@@ -80,23 +81,30 @@ tekstikentta.addEventListener("blur", function() {
 tekstikentta.addEventListener("input", function(){
   let nytpituus = tekstikentta.value.length; //tsekkaa pituus
   charcount.textContent = `${nytpituus}/${maxpituus}`; //näytä pituus / max pituus
+  esimerkki.textContent = tekstikentta.value; //laita esimerkki-kenttään tekstikentän arvo
+});
 
-//jos merkkimäärä ylittyy DEAKTIVOINTI UUPUU
-  if (nytpituus > maxpituus) {
-    tekstikentta.style.backgroundColor = "red"; //tekstikentän väri muuttuu punaiseksi
-    merkkimaara.style.color = "red"; // merkkimäärä muuttuu punaiseksi
+// keydown
+tekstikentta.addEventListener("keydown", function(a) {
+  if ((a.ctrlKey || a.metaKey) && a.key ==="Enter") { // jos painetaan ctrl tai cmd JA Enter
+    lomake.requestSubmit(); // lähetä lomake
   }
 })
 
-// keydown
+// submit-kuuntelija ja tekstin pituus (yhdistetty kaksi osaa tehtävästä)
+lomake.addEventListener("submit", function(e) { 
+  e.preventDefault(); //esto oikealle lähetykselle
+  let nytpituus = tekstikentta.value.length; // pituus
 
-// submit-kuuntelija
-lomake.addEventListener("submit", function(esto) { 
-  esto.preventDefault(); //esto oikealle lähetykselle
   if (tekstikentta.value === "") { //jos tekstikenttä on tyhjä, hälytä
     alert("Et voi lähettää tyhjää palautetta");
     return
   }
-  alert("Palaute tallennettu"); //muutoin näytä tämä viesti (pop-up)
+  else if (nytpituus < 10 || nytpituus > 200) { // jos teksti on alle 10 tai yli 200 merkkiä
+    e.preventDefault(); // estä lähetys
+    alert("Palautteen on oltava 10–200 merkkiä");
+    return
+  }
+  alert("Kiitos palautteesta!"); //muutoin näytä tämä viesti (pop-up)
   tekstikentta.value = ""; // tyhjennä tekstikenttä
 })

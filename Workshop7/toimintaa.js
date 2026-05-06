@@ -56,3 +56,15 @@ kaikkiPainike.addEventListener('click', function () {
     document.querySelector("#jsondata").innerHTML = 
     
 })
+
+let raakaD = document.querySelector("#raakaD");
+let parsiD = document.querySelector("#parsiD");
+let rawData = document.querySelector("#rawdata");
+
+raakaD.addEventListener('click', function () {
+
+})
+
+parsiD.addEventListener('click', function () {
+
+})

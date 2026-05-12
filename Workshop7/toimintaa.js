@@ -53,7 +53,7 @@ nimiPainike.addEventListener('click', function () {
 }})
 
 kaikkiPainike.addEventListener('click', function () {
-    document.querySelector("#jsondata").innerHTML = 
+    document.querySelector("#jsondata").innerHTML = text;
     
 })
 
